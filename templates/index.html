@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+</head>
+<body>
+     <nav class="navbar navbar-light">
+        <span class="navbar-brand mb-0 h1" style="color:#f78f1f">Philippines Fake News Predictor</span>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 class="display-4" style="font-size:30px">MODEL TRAINED FROM THE PHILIPPINES NEWS DATASETS CORPUS </h1>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 mt-4">
+                <form action="/predict" method="post">
+                <textarea
+                        class="form-control"
+                        name="phrase"
+                        rows="10"
+                        required
+                >{{phrase_val}}</textarea>
+                <input type="submit" class="btn btn-primary mt-3" value="Predict News"/>
+                     {% if (to_reset==True): %}
+                      <a href="/" class="btn btn-danger mt-3 float-right"/>Reset</a>
+                     {% endif %}
+                </form>
+
+            </div>
+             <div class="col-md-6 col-sm-12 col-xs-12 ">
+                <img src="{{img_label_path}}" class="img-fluid" style="width:40%;margin:auto;display:block"/>
+                 <span style="font-size:12px;"> {{ message_label}}</span>
+            </div>
+             <div class="col-md-12 col-sm-12 col-xs-12 mt-4">
+                <h1 class="display-4" style="font-size:25px">SAMPLE CONTENT FROM THE PHILIPPINES CORPUS </h1>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 mt-3">
+                   <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Credible News</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Not Credible News</a>
+                      </li>
+                    </ul>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 mt-3">
+            <div class="tab-content bg-white" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" >
+                                <div id="accordion" role="tablist" class="o-accordion">
+                                                      <div class="card">
+                                                        <div class="card-header bg-white" role="tab" id="headingOne">
+                                                          <h5 class="mb-0">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                              PH ranks 2nd in Asia-Pacific in deaths due to household pollution
+                                                            </a>
+                                                          </h5>
+                                                        </div>
+
+                                                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                                          <div class="card-block">
+                                                              Pollution caused by traditional cooking fuel is killing people in the Philippines at higher
+                                                              rates than those in most other countries in the Asia-Pacific region, according to the World
+                                                              Health Organization (WHO).The Philippines has earned the distinction of having the regionâ€™s
+                                                              second biggest number of deaths due to indoor air pollution, WHO said in a recent report.
+                                                              Data gathered by the world health agency showed that close to 84 deaths per 100,000 Filipinos
+                                                              were recorded in 2016 due to indoor or household air pollution.This put the Philippines second
+                                                              only to Laos, where at least 85 deaths per 100,000 population were recorded.
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="card">
+                                                        <div class="card-header bg-white" role="tab" id="headingTwo">
+                                                          <h5 class="mb-0">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                                  Paolo Duterte faces SALN investigation
+                                                                </a>
+                                                              </h5>
+                                                            </div>
+                                                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                              <div class="card-block">
+                                                                  Former Davao City Vice Mayor Paolo Duterte is facing investigation before the Office
+                                                                  of the Ombudsman in connection with his Statement of Assets, Liabilities,
+                                                                  and Net Worth (SALN), according to Ombudsman Conchita Carpio Morales.
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="card">
+                                                            <div class="card-header bg-white" role="tab" id="headingThree">
+                                                              <h5 class="mb-0">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                                  Group warns BFAR on law enforcement fund
+                                                                </a>
+                                                              </h5>
+                                                            </div>
+                                                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                              <div class="card-block">
+                                                                  HE militant fisher folk group Pambansang Lakas ng Kilusang Mamamalakaya ng Pilipinas
+                                                                  (Pamalakaya) on Saturday called for the scrapping of the 2018 budget of Bureau
+                                                                  of Fisheries and Aquatic Resources (BFAR) allocated for the Fisheries Regulatory
+                                                                  and Law Enforcement Program worth P697.7 million.The amount forms part of the
+                                                                  bureauâ€™s P5.9-billion proposed budget in the General Appropriations Act (GAA) for 2018
+
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                </div>
+
+                        </div>
+                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                           <div id="accordion" role="tablist" class="o-accordion">
+                                                      <div class="card">
+                                                        <div class="card-header bg-white" role="tab" id="headingOne1">
+                                                          <h5 class="mb-0">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                                              IN PHILIPPINE CITY, ORDINANCE PROMOTING SEXISM, AGEISM AND HOMOPHOBIA GOES INTO EFFECT
+                                                            </a>
+                                                          </h5>
+                                                        </div>
+
+                                                        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1">
+                                                          <div class="card-block">
+                                                              A man and another man older than the specified age as backrider CANNOT ride in
+                                                              tandem, except if they are father-son But ordinary Filipinos are smarter than
+                                                              the politicians. Many have eluded law enforcers by dressing up as women so
+                                                              that an adult man can ride in tandem with another man who is not his relative.
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="card">
+                                                        <div class="card-header bg-white" role="tab" id="headingTwo1">
+                                                          <h5 class="mb-0">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo1">
+                                                                  U.S. CONGRESSMAN STEALS FROM THE POPE!
+                                                                </a>
+                                                              </h5>
+                                                            </div>
+                                                            <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1">
+                                                              <div class="card-block">
+                                                                  A United States congressman faces possible charges of theft after he stole the
+                                                                  half-full drinking glass used by Pope Francis during his address to the joint
+                                                                  session of Congress.On Thursday, while his colleagues were distracted with the
+                                                                  pope departure from the House chamber, Rep. Bob Brady (D-Pa.) sneaked up to the
+                                                                  lectern and snatched the glass used by His Holiness, the Philadelphia Daily News first reported.
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="card">
+                                                            <div class="card-header bg-white" role="tab" id="headingThree1">
+                                                              <h5 class="mb-0">
+                                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree1" aria-expanded="true" aria-controls="collapseThree1">
+                                                                  Philippine Elections 2016 is not a vote for Duterte but a vote AGAINST Aquino
+                                                                </a>
+                                                              </h5>
+                                                            </div>
+                                                            <div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1">
+                                                              <div class="card-block">
+                                                                   That is the fundamental reality at work here.Social media took away the power
+                                                                  to influence the vote from mainstream media. In the process, it provided us a
+                                                                  more real and more confronting picture of the true collective character of the
+                                                                  Filipino voter. And on that reality, we may be on the money preparing to salute
+                                                                  a Rodrigo Duterte presidency come July 2016.
+                                                              </div>
+                                                            </div>
+                                                        </div>
+                                </div>
+
+                 </div>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 mt-3">
+                <h1 class="display-4" style="font-size:15px">
+                    This Fake News Predictor WebApp used Naive Bayes Classifier algorithm for prediction and Philippines corpus datasets.
+                    To download the datasets that I've used just simply
+                    <a href="https://github.com/aaroncarlfernandez/Philippine-Fake-News-Corpus">click this.</a>
+                    That datasets contains 14,802 'Credible' news and 7,666 'Not Credible' news.
+                    All news are dated from January 1, 2016 to October 31, 2018.
+                    <br><br><br>Thankyou!
+                </h1>
+            </div>
+            </div>
+
+    </div>
+<footer class="page-footer font-small mt-6">
+
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="#"> Jheno Silleza Cerbito</a>
+    </div>
+
+  </footer>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    $('.collapse').collapse()
+</script>
+</body>
+</html>
