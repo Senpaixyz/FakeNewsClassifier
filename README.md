@@ -7,7 +7,7 @@ The goal of this web application was to produced news classifier prediction appl
 - The source of the news are not genuine/ trusted.
 - There are some error regarding of phrase.
 - Seek for attention words.
-- Goood to be True.
+- Good to be True.
 
 [![N|Solid](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG?raw=true)](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG)
 
