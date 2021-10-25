@@ -2,12 +2,14 @@
 ##### _The model build using Naive Bayes Classifier algorithm_
 
 The goal of this web application was to produced news classifier prediction application. There are social media platrforms nowadays spreading fake news like Facebook, Twitter, Reddit and so forth. The fake news easily spread around the world, most of the people who has lack of knowledge regarding the reality belived. It is a piece of information falsified often that aimed to mislead people to a wrong info that can cause destroy individual reputation.
+## Deployed at Heroku
+https://cerbito-fakenews-classifier.herokuapp.com/
 ## Fake News Characteristics
 
 - The source of the news are not genuine/ trusted.
 - There are some error regarding of phrase.
 - Seek for attention words.
-- Good to be True.
+- Goood to be True.
 
 [![N|Solid](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG?raw=true)](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG)
 
