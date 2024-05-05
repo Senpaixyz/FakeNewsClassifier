@@ -1,9 +1,9 @@
 # Fake News Classifier (Philippines Fake News Datasets Corpus) 
-##### _The model build using Naive Bayes Classifier algorithm_
 
-The goal of this web application was to produced news classifier prediction application. There are social media platrforms nowadays spreading fake news like Facebook, Twitter, Reddit and so forth. The fake news easily spread around the world, most of the people who has lack of knowledge regarding the reality belived. It is a piece of information falsified often that aimed to mislead people to a wrong info that can cause destroy individual reputation.
-## Deployed at Heroku
-https://cerbito-fakenews-classifier.herokuapp.com/
+The objective of this web application was to develop a prediction tool for classifying news articles. In today's digital age, social media platforms like Facebook, Twitter, and Reddit are notorious for spreading misinformation, commonly known as fake news. This misinformation can quickly circulate globally, deceiving individuals who lack accurate information. Fake news, often fabricated to mislead and tarnish reputations, poses significant risks by disseminating false information. In this project, the Naive Bayes Classifier algorithm was employed to train the model for accurate news classification and combat the spread of misinformation.
+
+[![N|Solid](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG?raw=true)](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG)
+
 ## Fake News Characteristics
 
 - The source of the news are not genuine/ trusted.
@@ -11,9 +11,7 @@ https://cerbito-fakenews-classifier.herokuapp.com/
 - Seek for attention words.
 - Goood to be True.
 
-[![N|Solid](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG?raw=true)](https://github.com/Senpaixyz/FakeNewsClassifier/blob/master/images/landingpage.PNG)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/Senpaixyz/faceEmotion-classifierr)
 ## Features
 
 - User Friendly Graphical User Interface.
